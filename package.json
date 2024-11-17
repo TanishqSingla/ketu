@@ -1,22 +1,25 @@
 {
 	"name": "ketu",
 	"type": "module",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"scripts": {
-		"build": "node build.mjs && tsc"
+		"build": "tsup src/index.ts --format cjs,esm --dts"
 	},
-	"dependencies": {
+	"peerDependencies": {
 		"preact": "^10.22.1"
 	},
 	"devDependencies": {
-		"esbuild": "^0.24.0",
 		"eslint": "^8.57.1",
 		"eslint-config-preact": "^1.5.0",
+		"tsup": "^8.3.5",
 		"typescript": "^5.6.3"
 	},
 	"eslintConfig": {
 		"extends": "preact"
 	},
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"files": [
 		"dist"
 	]
