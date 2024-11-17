@@ -3,13 +3,13 @@
 		"target": "ES2020",
 		"module": "ESNext",
 		"moduleResolution": "bundler",
-		"emitDeclarationOnly": true,
 		"allowJs": true,
 		"checkJs": true,
 		"noImplicitAny": true,
-		"noEmit": true,
 		"strict": true,
 		"declaration": true,
+		"emitDeclarationOnly": true,
+
 		/* Preact Config */
 		"jsx": "react-jsx",
 		"jsxImportSource": "preact",
@@ -21,8 +21,7 @@
 		},
 		"outDir": "dist"
 	},
-	"exclude": [
-		"build.mjs",
-		"dist"
+	"include": [
+		"./src/**/*"
 	]
 }
