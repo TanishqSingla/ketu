@@ -1,11 +1,15 @@
+import { resolve } from 'path';
 import { defineConfig } from 'vite'
+import preact from '@preact/preset-vite'
 
 export default defineConfig({
+	plugins: [preact()],
 	build: {
 		lib: {
 			entry: "./src/index.ts",
 			formats: ["es"]
 		},
+		outDir: "dist",
 		rollupOptions: {
 			external: ['preact'],
 			output: {
@@ -17,7 +21,7 @@ export default defineConfig({
 	},
 	resolve: {
 		alias: {
-			'@types': 'dist/types'
+			"@src": resolve(__dirname, "/src")
 		}
 	}
 })
