@@ -3,7 +3,8 @@
 	"type": "module",
 	"version": "0.0.5",
 	"scripts": {
-		"build": "tsup src/index.ts --format cjs,esm --dts"
+		"compile": "tsc",
+		"build": "tsup src/index.ts --format esm --dts"
 	},
 	"peerDependencies": {
 		"preact": "^10.22.1"
