@@ -18,8 +18,8 @@
 	"eslintConfig": {
 		"extends": "preact"
 	},
-	"main": "dist/index.js",
-	"module": "dist/index.js",
+	"main": "dist/ketu.js",
+	"module": "dist/ketu.js",
 	"types": "dist/index.d.ts",
 	"files": [
 		"dist"
