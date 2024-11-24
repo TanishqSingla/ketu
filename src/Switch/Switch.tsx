@@ -2,7 +2,7 @@ import { createContext } from "preact";
 import { Props, Tag } from "../types/types";
 
 import { Dispatch, StateUpdater, useContext } from "preact/hooks";
-import { useUncontrolled } from "src/hooks/useUncontrolled";
+import { useUncontrolled } from "../hooks/useUncontrolled";
 
 type TSwitchContext = {
 	checked: boolean;
