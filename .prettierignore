@@ -1,0 +1,6 @@
+.github/
+pnpm-lock.yaml
+*.config.js
+tsconfig.json
+README.md
+package.json

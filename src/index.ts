@@ -1,1 +1,1 @@
-export { Button } from './Button/Button'
+export { Switch, SwitchThumb } from "./Switch/Switch";
