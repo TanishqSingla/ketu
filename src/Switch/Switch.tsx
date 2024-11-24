@@ -1,4 +1,4 @@
-import { createContext, JSX } from "preact";
+import { createContext } from "preact";
 import { Props, Tag } from "../types/types";
 
 import { Dispatch, StateUpdater, useContext } from "preact/hooks";
