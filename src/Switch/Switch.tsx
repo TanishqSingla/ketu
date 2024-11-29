@@ -69,7 +69,7 @@ export const Switch = <T extends Tag = "button">(
 			<Comp data-checked={checked} role="switch" {...rest}>
 				{children}
 			</Comp>
-			<input type="checkbox" checked={checked} />
+			<input type="checkbox" checked={checked} aria-hidden />
 		</SwitchContext.Provider>
 	);
 };
