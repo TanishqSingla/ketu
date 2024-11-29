@@ -8,7 +8,7 @@
 		"format:all": "prettier --write ."
 	},
 	"peerDependencies": {
-		"preact": "^10.22.1"
+		"preact": "^10.25.0"
 	},
 	"devDependencies": {
 		"@preact/preset-vite": "^2.9.1",
