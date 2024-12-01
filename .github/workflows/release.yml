@@ -6,7 +6,7 @@ on:
 
 jobs:
   lint:
-    uses: https://github.com/TanishqSingla/ketu/blob/main/.github/workflows/ci.yml
+    uses: TanishqSingla/ketu/.github/workflows/ci.yml@main
 
   publish:
     runs-on: ubuntu-latest
