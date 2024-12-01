@@ -29,6 +29,7 @@ interface UncontrolledSwitchProps {
 	 * default value
 	 **/
 	defaultChecked?: boolean;
+	name?: string;
 }
 
 interface ControlledSwitchProps extends UncontrolledSwitchProps {
@@ -69,7 +70,7 @@ export const Switch = <T extends Tag = "div">(
 			<Comp data-checked={checked} role="switch" {...rest}>
 				{children}
 			</Comp>
-			<input type="checkbox" checked={checked} aria-hidden name={rest?.name} id={rest?.id} />
+			<input type="checkbox" checked={checked} aria-hidden name={rest?.name} hidden />
 		</SwitchContext.Provider>
 	);
 };
