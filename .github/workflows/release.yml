@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  publis-build: 
+  publish-build: 
     runs-on: ubuntu-latest
 
     steps:
@@ -30,4 +30,4 @@ jobs:
       - name: publish
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
