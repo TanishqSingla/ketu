@@ -6,18 +6,26 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint:
-    uses: TanishqSingla/ketu/.github/workflows/ci.yml@main
-
-  publish:
+  publis-build: 
     runs-on: ubuntu-latest
-    needs: lint
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Setup Node 
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
+      
+      - name: Setup pnpm 
+        run: corepack enable
 
-      - name: Publish package
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build 
+
+      - name: publish
         run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
