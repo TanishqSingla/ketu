@@ -49,10 +49,10 @@ type SwitchProps = ControlledSwitchProps | UncontrolledSwitchProps;
  * Switch implements a <input type='checkbox'> under the hood, so it can be used
  * inside forms.
  */
-export const Switch = <T extends Tag = "button">(
+export const Switch = <T extends Tag = "div">(
 	props: Props<T, SwitchProps>,
 ) => {
-	const { as = "button", children, defaultChecked, ...rest } = props;
+	const { as = "div", children, defaultChecked, ...rest } = props;
 	const { onValueChange, checked: _checked } = props as ControlledSwitchProps;
 
 	const [checked, setChecked] = useUncontrolled({
@@ -62,14 +62,14 @@ export const Switch = <T extends Tag = "button">(
 		onChange: onValueChange,
 	});
 
-	const Comp: Tag = as;
+	const Comp = as;
 
 	return (
 		<SwitchContext.Provider value={{ checked, setChecked }}>
 			<Comp data-checked={checked} role="switch" {...rest}>
 				{children}
 			</Comp>
-			<input type="checkbox" checked={checked} aria-hidden />
+			<input type="checkbox" checked={checked} aria-hidden name={rest?.name} id={rest?.id} />
 		</SwitchContext.Provider>
 	);
 };
@@ -77,9 +77,9 @@ export const Switch = <T extends Tag = "button">(
 export const SwitchThumb = <T extends Tag = "span">(props: Props<T>) => {
 	const context = useSwitchContext();
 
-	const { as, children, ...rest } = props;
+	const { as = "span", children, ...rest } = props;
 
-	const Comp: Tag = as ?? "span";
+	const Comp = as;
 
 	return (
 		<Comp data-checked={context.checked} {...rest}>
