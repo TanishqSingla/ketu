@@ -1,7 +1,7 @@
 {
 	"name": "ketu",
 	"type": "module",
-	"version": "0.0.12",
+	"version": "0.0.13",
 	"scripts": {
 		"build": "vite build && tsc",
 		"format:check": "prettier --check .",
