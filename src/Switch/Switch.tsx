@@ -27,7 +27,7 @@ interface UncontrolledSwitchProps {
 	 *
 	 * If controlled props are provided, this value also overrides `checked`'s
 	 * default value
-	 **/
+	 */
 	defaultChecked?: boolean;
 	name?: string;
 }
@@ -38,7 +38,7 @@ interface ControlledSwitchProps extends UncontrolledSwitchProps {
 	 * `Switch` component a controlled component.
 	 *
 	 * defaults to `false`
-	 **/
+	 */
 	checked: boolean;
 	onValueChange: (value: boolean) => void;
 }
@@ -53,7 +53,7 @@ type SwitchProps = ControlledSwitchProps | UncontrolledSwitchProps;
 export const Switch = <T extends Tag = "div">(
 	props: Props<T, SwitchProps>,
 ) => {
-	const { as = "div", children, defaultChecked, ...rest } = props;
+	const { as = "div", children, defaultChecked, name, ...rest } = props;
 	const { onValueChange, checked: _checked } = props as ControlledSwitchProps;
 
 	const [checked, setChecked] = useUncontrolled({
@@ -70,7 +70,14 @@ export const Switch = <T extends Tag = "div">(
 			<Comp data-checked={checked} role="switch" {...rest}>
 				{children}
 			</Comp>
-			<input type="checkbox" checked={checked} aria-hidden name={rest?.name} hidden />
+			<input
+				type="checkbox"
+				checked={checked}
+				aria-hidden
+				name={name}
+				hidden
+				tabIndex={-1}
+			/>
 		</SwitchContext.Provider>
 	);
 };
@@ -83,7 +90,11 @@ export const SwitchThumb = <T extends Tag = "span">(props: Props<T>) => {
 	const Comp = as;
 
 	return (
-		<Comp data-checked={context.checked} {...rest}>
+		<Comp
+			data-checked={context.checked}
+			onClick={() => context.setChecked(!context.checked)}
+			{...rest}
+		>
 			{children}
 		</Comp>
 	);
