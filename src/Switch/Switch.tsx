@@ -50,9 +50,7 @@ type SwitchProps = ControlledSwitchProps | UncontrolledSwitchProps;
  * Switch implements a <input type='checkbox'> under the hood, so it can be used
  * inside forms.
  */
-export const Switch = <T extends Tag = "div">(
-	props: Props<T, SwitchProps>,
-) => {
+export const Switch = <T extends Tag = "div">(props: Props<T, SwitchProps>) => {
 	const { as = "div", children, defaultChecked, name, ...rest } = props;
 	const { onValueChange, checked: _checked } = props as ControlledSwitchProps;
 
