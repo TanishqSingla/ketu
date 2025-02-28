@@ -3,6 +3,7 @@ import { Props, Tag } from "../types/types";
 
 import { Dispatch, StateUpdater, useContext } from "preact/hooks";
 import { useUncontrolled } from "../hooks/useUncontrolled";
+import { KeyboardEvent } from "preact/compat";
 
 type TSwitchContext = {
 	checked: boolean;
@@ -61,11 +62,22 @@ export const Switch = <T extends Tag = "div">(props: Props<T, SwitchProps>) => {
 		onChange: onValueChange,
 	});
 
+	const handleKeyPress = (event: KeyboardEvent<any>) => {
+		if (event.key === " ") {
+			setChecked(!checked);
+		}
+	};
+
 	const Comp = as;
 
 	return (
 		<SwitchContext.Provider value={{ checked, setChecked }}>
-			<Comp data-checked={checked} role="switch" {...rest}>
+			<Comp
+				data-checked={checked}
+				role="switch"
+				{...rest}
+				onKeyPress={handleKeyPress}
+			>
 				{children}
 			</Comp>
 			<input
