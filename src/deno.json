@@ -3,8 +3,16 @@
 	"version": "0.1.21",
 	"exports": "./index.ts",
 	"imports": {
-		"preact": "https://esm.sh/preact@10.25.0",
-		"preact/": "https://esm.sh/preact@10.25.0/",
+		"preact": "npm:preact@10.25.0",
 		"src/": "./"
+	},
+	"publish": {
+		"include": ["./"]
+	},
+	"compilerOptions": {
+		"jsx": "react-jsx",
+		"jsxImportSource": "preact",
+		"noImplicitAny": true,
+		"strict": true
 	}
 }

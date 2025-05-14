@@ -4,6 +4,7 @@ import { Props, Tag } from "../types/types";
 import { Dispatch, StateUpdater, useContext } from "preact/hooks";
 import { useUncontrolled } from "../hooks/useUncontrolled";
 import { KeyboardEvent } from "preact/compat";
+import { JSXInternal } from "preact/src/jsx";
 
 type TSwitchContext = {
 	checked: boolean;
@@ -51,7 +52,7 @@ type SwitchProps = ControlledSwitchProps | UncontrolledSwitchProps;
  * Switch implements a <input type='checkbox'> under the hood, so it can be used
  * inside forms.
  */
-export const Switch = <T extends Tag = "div">(props: Props<T, SwitchProps>) => {
+export const Switch = <T extends Tag = "div">(props: Props<T, SwitchProps>): JSXInternal.Element => {
 	const { as = "div", children, defaultChecked, name, ...rest } = props;
 	const { onValueChange, checked: _checked } = props as ControlledSwitchProps;
 
@@ -92,7 +93,7 @@ export const Switch = <T extends Tag = "div">(props: Props<T, SwitchProps>) => {
 	);
 };
 
-export const SwitchThumb = <T extends Tag = "span">(props: Props<T>) => {
+export const SwitchThumb = <T extends Tag = "span">(props: Props<T>): JSXInternal.Element => {
 	const context = useSwitchContext();
 
 	const { as = "span", children, ...rest } = props;
