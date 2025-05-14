@@ -1,0 +1,24 @@
+name: Release JSR
+on: 
+  release:
+    types:
+      - published
+  workflow_dispatch:
+
+jobs:
+  publish-build: 
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    defaults:
+      run: 
+        working-directory: ./src
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: publish jsr
+        uses: npx jsr publish
