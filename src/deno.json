@@ -1,5 +1,9 @@
 {
 	"name": "@pantheon/ketu",
 	"version": "0.1.21",
-	"exports": "./index.ts"
+	"exports": "./index.ts",
+	"imports": {
+		"preact": "https://esm.sh/preact@10.25.0",
+		"preact/": "https://esm.sh/preact@10.25.0/"
+	}
 }
